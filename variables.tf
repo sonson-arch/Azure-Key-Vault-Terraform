@@ -26,10 +26,10 @@ variable "sku_name" {
   type        = string
   description = "The SKU of the vault to be created."
   default     = "standard"
-  validation {
-    condition     = contains(["standard", "premium"], var.sku_name)
-    error_message = "The sku_name must be one of the following: standard, premium."
-  }
+  # validation {
+  #   condition     = contains(["standard", "premium"], var.sku_name)
+  #   error_message = "The sku_name must be one of the following: standard, premium."
+  # }
 }
 
 variable "key_permissions" {
@@ -41,7 +41,7 @@ variable "key_permissions" {
 variable "secret_permissions" {
   type        = list(string)
   description = "List of secret permissions."
-  default     = ["Set"]
+  default     = ["List", "Set", "Get"]
 }
 
 variable "key_type" {
